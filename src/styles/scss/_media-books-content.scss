@@ -1,0 +1,272 @@
+@media screen and (max-width: 820px) {
+    .content-2 {
+        position: relative;
+        display: flex;
+        top: -12vw;
+        max-width: 820px;
+        margin: 0 auto;
+
+        .div-back-ground-list {
+            position: absolute;
+            z-index: 5;
+            left: 0;
+            width: 55px;
+            height: 50px;
+            border-radius: 0 45% 45% 0;
+            background-color: $colorBgDot;
+            transition: border-radius 1s ease;
+            
+            &.active{
+                border-radius: 0 45% 0 0;
+                transition: border-radius 1s ease;
+            }
+            
+            &:hover,:active{
+                scale: 1.05;
+            }
+
+            .menu-mobile-category {
+                width: 35px;
+                height: 30px;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                z-index:5;
+                overflow: hidden;
+                cursor: pointer;
+                
+                & > span {
+                width: 30px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #222222;
+                transition: all 0.5s;
+                    &:nth-of-type(2) {
+                        top: calc(50% - 8px);
+                    }
+                    &:nth-of-type(3) {
+                        top: calc(50% + 8px);
+                    }
+                }
+            }
+        }
+
+        .container-info {
+            position: relative;
+            margin: 35px auto;
+            width: 100vw;
+            max-width: 820px;
+            display: flex;
+
+
+            .categories-books{
+                position: absolute;
+                opacity: 0;
+            }
+            
+            .categories-books.active {
+                opacity: 1;
+                position: absolute;
+                
+                transform: 0 0;
+                z-index: 15;
+                border-radius: 0 15px 15px 0;
+                background-size: cover;
+                top: 15px;
+                min-width: max-content;
+                height: max-content;
+                background-color: #efeef6c0;
+                
+                transition: opacity 0.4s ease, position 0.4s ease;
+                
+                .categories-list {
+                    width: 145px;
+                    margin-left: 25px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+                
+                & ul > li {
+                    text-decoration: none;
+                    background: none;
+                    border: none;
+                    @include title(12px, normal, 500, $font1, 15px, capitalize, $greyText, 0 ,0 ,0);
+                    cursor: pointer;
+                }
+                
+        
+                li:hover, li.active {
+                    @include title(16px, normal, 700, $font1, 15px, capitalize, $blackActiveText, 0 ,0 ,0);
+                }
+        
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+        
+                    & li.active, :hover{
+                        list-style: none;
+                        list-style-position: outside;
+                        &::marker {
+                            color: $colorMarker;
+                            width: 6px;
+                            height: 6px;
+                        }
+                    }
+        
+                    li.active::marker {
+                        color: $colorMarker;
+                        width: 6px;
+                        height: 6px;
+                    }
+        
+                }
+        
+                li:not(:first-child){
+                    margin-top: 23px;
+                }
+            }
+
+            .output-books {
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                width: 35vw;
+                height: max-content;
+                display: grid;
+                grid-column-gap: 15px;
+                grid-row-gap: 96px;
+                
+                .cardBook {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: row;
+                    height: max-content;
+                    & .image-books {
+                        width: 200px;
+                        height: 327px;
+                        box-shadow: 0px 24px 36px rgba(53, 49, 84, 0.28);
+                    }
+                }
+
+                .load {
+                    position: relative;
+                    bottom: 0;
+                    padding-bottom: 15px;
+                    display: flex;
+                    width: inherit;
+                    & > button {
+                        width: 176px;
+                        height: 45px;
+                        @include title(8px, normal, 700, $font1, 10px, uppercase, $colorButtonText, center ,0 ,0);
+                        background-color: $white;
+                        border: 1px solid #4C3DB2;
+            
+                        &:hover {
+                            color:$greyText;
+                            border: 1px solid #EEEDF5;
+                            cursor: pointer;
+                        }
+                        &:active {
+                            scale: 1.05;
+                            border: 2px solid #4C3DB2;
+                        }
+                    }
+                }
+            
+
+
+                .infoBooks {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    width: 35vw;
+                    max-width: 176px;
+                    margin: auto 0;
+                    margin-top: 15px;
+                    margin-left: 15px;
+
+                    .title-books {
+                        @include title(1rem, normal, 400, $font1, 1.1rem, null, $blackActiveText, 0 ,0 ,0);
+                        position: relative;
+                        left: 0;
+                        width: 25vw;
+                    }
+
+                    .container-stars {
+                        position: relative;
+                        left: 0;
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 5px;
+                        width: 35vw;
+                        max-width: 176px;
+                        .stars {
+                            width: max-content;
+                            margin-right: 5px;
+                        }
+        
+                        .raiting-count {
+                            .raiting {
+                                width: max-content;
+                                @include title(10px, normal, 400, $font2, 14px, lowercase, $greyText, center ,0 ,0);
+                            }
+                        }
+                    }
+                    
+                    .descriptions {
+                        margin: 16px 0;
+                        display: grid;
+                        grid-template-rows: 1rem 1rem 1rem;
+                        position: relative;
+                        left: 0;
+                        width: 30vw;
+                        max-width: 176px;
+                        
+                        .text-descriptions {
+                            height: max-content;
+                            overflow: hidden;
+                            word-break: break-all;
+                            @include title(10px, normal, 400, $font2, 14px, capitalize, $greyText, 0 ,0 ,0);
+                        }
+                    }
+
+                    .button {
+                        position: absolute;
+                        top: 250px;
+                        width: max-content;
+        
+                        & > button {
+                            width: 30vw;
+                            max-width: 176px;
+                            height: 45px;
+                            @include title(8px, normal, 700, $font1, 10px, uppercase, $colorButtonText, center ,0 ,0);
+                            background-color: $white;
+                            border: 1px solid #4C3DB2;
+        
+                            &:hover {
+                                color:$greyText;
+                                border: 1px solid #EEEDF5;
+                                cursor: pointer;
+                            }
+                            &.active {
+                                color:$greyText;
+                                border: 1px solid #EEEDF5;
+                            }
+        
+                            &:active {
+                                border: 1px solid #4C3DB2;
+                                scale: 1.05;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

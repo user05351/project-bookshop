@@ -1,0 +1,133 @@
+@import "var";
+
+@mixin font(
+  $fontSize,
+  $fontStyle,
+  $fontWeight,
+  $fontFamily,
+  $lineHeight,
+  $textTransorm,
+  $color
+) {
+  font-family: $fontFamily;
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  text-transform: $textTransorm;
+  color: $color;
+}
+
+.header {
+  width: 100vw;
+  max-width: 100%;
+  z-index: 100;
+  max-height: 116px;
+  position: fixed;
+  top: 0;
+  background-color: $white;
+  
+}
+
+.header__navbar {
+  height: 116px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1120px;
+  position: relative;
+
+  // style for @media
+  .menu-btn-mobile {
+    display: none;
+    width: 30px;
+	  height: 30px;
+	  position: absolute;
+    top: 48px;
+    left: 10px;
+	  z-index:5;
+	  overflow: hidden;
+    cursor: pointer;
+    
+    & > span {
+      width: 30px;
+	    height: 2px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #222222;
+      transition: all 0.5s;
+      &:nth-of-type(2) {
+        top: calc(50% - 5px);
+      }
+      &:nth-of-type(3) {
+        top: calc(50% + 5px);
+      }
+    }
+    
+  }
+
+  .logo {
+    margin: 47px 0 40px 0;
+    @include font(24px, normal, 700, $font1, 29px, "", $blackActiveText);
+  }
+
+  .logo:hover {
+    cursor: pointer;
+  }
+  .navbar__nav {
+    margin: 56px 0 48px 0;
+    .nav__item-link {
+      &:not(:last-child) {
+        margin-right: $marginBetweenElements;
+      }
+      @include font(10px, normal, 700, $font1, 12px, uppercase, $greyText);
+    }
+    & a {
+      text-decoration: none;
+      &:hover {
+        font-weight: 900;
+        color: $blackActiveText;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .icon-navbar {
+    position: relative;
+    display: flex;
+    margin: 53px 0 46px 0;
+    & .icon-navbar__icon-img {
+
+      .shop-bag{
+        @include font(10px, normal, 500, $font2, 12px, capitalize, $white);
+        width: 13px;
+        height: 13px;
+        position: relative;
+        top: -15px;
+        left: 45px;
+        z-index: 8;
+        text-align: center;
+        background-color: $itemsBagColor;
+        border-radius: 50%;
+        opacity: 0;
+        margin: 0;
+        &.active {
+          opacity: 1;
+        }
+    }
+
+      &:not(:last-child) {
+        margin-left: $marginBetweenElements;
+      }
+      &:hover {
+        cursor: pointer;
+        scale: 1.1;
+      }
+    }
+    
+  }
+}
